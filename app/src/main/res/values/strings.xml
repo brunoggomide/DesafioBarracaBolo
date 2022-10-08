@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DesafioBolos</string>
+    <string name="login">Login</string>
+    <string name="cadastro">Cadastre-se</string>
+</resources>
