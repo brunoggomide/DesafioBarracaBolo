@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".activities.OrderActivity">
+
+
+    <TextView
+        android:id="@+id/dados_pedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cesta"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <TextView
+        android:id="@+id/entrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/switchEntrega"
+        app:layout_constraintTop_toBottomOf="@+id/dados_pedido"
+        android:text="Entregar"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+    />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchEntrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dados_pedido"
+        android:layout_margin="5dp"
+    />
+
+    <TextView
+        android:id="@+id/retirar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/switchEntrega"
+        app:layout_constraintTop_toBottomOf="@+id/dados_pedido"
+        android:text="Retirar"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+    />
+
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponentsEntrega"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switchEntrega"
+        android:visibility="visible"
+    />
+
+    <EditText
+        android:id="@+id/endereco"
+        style="@style/Edit_Text"
+        android:hint="Endereço, número"
+        android:inputType="text"
+        android:maxLength="50"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toTopOf="@id/containerComponents"
+        android:visibility="visible"
+    />
+
+    <EditText
+        android:id="@+id/bairro"
+        style="@style/Edit_Text"
+        android:hint="Bairro"
+        android:inputType="text"
+        android:maxLength="25"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/endereco"
+        android:visibility="visible"
+    />
+
+    <EditText
+        android:id="@+id/cmp"
+        style="@style/Edit_Text"
+        android:hint="Complemento"
+        android:inputType="text"
+        android:maxLength="20"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/bairro"
+        android:visibility="visible"
+    />
+
+    <EditText
+        android:id="@+id/cidade"
+        style="@style/Edit_Text"
+        android:hint="Cidade"
+        android:inputType="text"
+        android:maxLength="35"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cmp"
+        android:visibility="visible"
+    />
+
+    <EditText
+        android:id="@+id/loc"
+        style="@style/Edit_Text"
+        android:hint="Referência"
+        android:inputType="text"
+        android:maxLength="50"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cidade"
+        android:visibility="visible"
+    />
+
+    <View
+        android:id="@+id/containerComponentsPayment"
+        style="@style/ContainerComponentsPayment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerComponents"
+    />
+
+    <TextView
+        android:id="@+id/payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Método de pagamento"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponentsPayment"
+        app:layout_constraintEnd_toEndOf="@id/containerComponentsPayment"
+        app:layout_constraintTop_toTopOf="@id/containerComponentsPayment"
+    />
+
+    <CheckBox
+        android:id="@+id/checkbox_dinheiro"
+        style="@style/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dinheiro"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/containerComponentsPayment"
+        app:layout_constraintTop_toBottomOf="@id/payment"
+    />
+
+    <EditText
+        android:id="@+id/troco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text"
+        android:padding="10dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:hint="Troco"
+        android:inputType="number"
+        android:maxLength="10"
+        app:layout_constraintStart_toStartOf="@id/checkbox_dinheiro"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_dinheiro"
+        android:visibility="gone"
+    />
+
+    <CheckBox
+        android:id="@+id/checkbox_cartao"
+        style="@style/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cartão"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/containerComponentsPayment"
+        app:layout_constraintTop_toBottomOf="@id/troco"
+    />
+
+    <CheckBox
+        android:id="@+id/checkbox_pix"
+        style="@style/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pix"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/containerComponentsPayment"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_cartao"
+    />
+
+    <TextView
+        android:id="@+id/cesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itens da cesta"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerComponentsPayment"
+    />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/order_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cesta"
+    />
+
+    <TextView android:id="@+id/sub_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_recyclerView"
+        android:layout_margin="20dp"
+        android:text="Sub total"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <TextView android:id="@+id/bub_total_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_recyclerView"
+        android:layout_margin="20dp"
+        android:text="R$ 20,00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <TextView android:id="@+id/taxa_entrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sub_total"
+        android:layout_margin="20dp"
+        android:text="Taxa de entrega"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <TextView android:id="@+id/taxa_entrega_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sub_total"
+        android:layout_margin="20dp"
+        android:text="R$ 5,00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <TextView android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taxa_entrega"
+        android:layout_margin="20dp"
+        android:text="Total"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <TextView android:id="@+id/total_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taxa_entrega"
+        android:layout_margin="20dp"
+        android:text="R$ 25,00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/OrderButton"
+        android:text="Finalizar pedido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/total"
+        app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

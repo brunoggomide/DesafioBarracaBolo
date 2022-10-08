@@ -1,0 +1,30 @@
+[
+  {
+    "name":"Barraca de Bolo",
+    "address":"Av. Costábile Romano, 2201 - Nova Ribeirânia",
+    "delivery_charge": 5,
+
+    "menus": [
+      {
+        "name": "Bolo de Cenoura",
+        "price": 20.00,
+        "url": "https://img.cybercook.com.br/receitas/975/bolo-de-cenoura-31.jpeg?w=350&h=230&fit=crop"
+      },
+      {
+        "name": "Bolo de Chocolate",
+        "price": 22.00,
+        "url": "https://assets.unileversolutions.com/recipes-v2/164246.jpg"
+      },
+      {
+        "name": "Bolo de Milho",
+        "price": 18.00,
+        "url": "https://img.cybercook.com.br/receitas/641/bolo-de-milho-4.jpeg"
+      },
+      {
+        "name": "Bento Cake",
+        "price": 49.99,
+        "url": "https://casaeartesanato.com/wp-content/uploads/2022/06/bento-cake.jpeg"
+      }
+    ]
+  }
+]

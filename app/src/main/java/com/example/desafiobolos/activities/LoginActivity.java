@@ -1,4 +1,4 @@
-package com.example.desafiobolos;
+package com.example.desafiobolos.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+import com.example.desafiobolos.R;
 
-    private TextView text_cadastro;
+public class LoginActivity extends AppCompatActivity {
+
+    private TextView cadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +19,19 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().hide();
+        IniciarComponentes();
 
-        text_cadastro.setOnClickListener(new View.OnClickListener() {
+        cadastro.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, Cadastro.class);
+                Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void IniciarComponentes() {
-        text_cadastro = findViewById(R.id.cadastro);
+        cadastro = findViewById(R.id.cadastro);
     }
 }

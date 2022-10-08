@@ -1,4 +1,4 @@
-package com.example.desafiobolos;
+package com.example.desafiobolos.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Cadastro extends AppCompatActivity {
+import com.example.desafiobolos.R;
+
+public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

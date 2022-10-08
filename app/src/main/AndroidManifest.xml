@@ -14,13 +14,16 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
-            android:name=".Cadastro"
+            android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
