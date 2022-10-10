@@ -14,10 +14,13 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
+            android:name=".DeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".activities.CadastroActivity"
+            android:name=".activities.RegistrerActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
