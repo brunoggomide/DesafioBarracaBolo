@@ -44,18 +44,6 @@
                 android:layout_marginTop="10dp"
             />
 
-            <TextView android:id="@+id/menu_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:text="Com cobertura de brigadeiro.
-                (aproximadamente 500gr)."
-                android:textColor="@color/black"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                />
-
             <TextView android:id="@+id/menu_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

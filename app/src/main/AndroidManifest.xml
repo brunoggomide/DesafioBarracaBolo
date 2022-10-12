@@ -14,6 +14,15 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".DeliveryActivity"
             android:exported="false" />
         <activity

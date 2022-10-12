@@ -45,8 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="1 Bolo de Cenoura.
-                2 Bolo de Chocolate"
+                android:text="1 Bolo de Cenoura."
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
             />
