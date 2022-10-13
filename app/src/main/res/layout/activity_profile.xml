@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Olá, Bruno!"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="bruno.gomide@sou.unaerp.edu"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nome_textView" />
 
@@ -37,17 +38,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="(16) 99000-5555"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_textView" />
 
     <androidx.appcompat.widget.AppCompatButton
-        style="@style/OrderButton"
-        android:text="Editar cadastro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/edit_btn"
+        style="@style/LogoutButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="4dp"
+        android:text="Sair"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout_btn"
+        style="@style/EditButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:text="Editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edit_btn"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
