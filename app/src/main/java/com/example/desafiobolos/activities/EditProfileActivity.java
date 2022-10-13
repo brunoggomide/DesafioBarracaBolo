@@ -3,8 +3,9 @@ package com.example.desafiobolos.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+import com.example.desafiobolos.activities.R;
 public class EditProfileActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

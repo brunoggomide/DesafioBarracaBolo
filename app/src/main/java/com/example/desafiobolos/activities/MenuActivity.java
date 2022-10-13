@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.desafiobolos.R;
+import com.example.desafiobolos.activities.R;
 
 public class MenuActivity extends AppCompatActivity {
 

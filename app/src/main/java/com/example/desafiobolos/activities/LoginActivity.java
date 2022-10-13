@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.desafiobolos.R;
+import com.example.desafiobolos.activities.R;
 
 public class LoginActivity extends AppCompatActivity {
 

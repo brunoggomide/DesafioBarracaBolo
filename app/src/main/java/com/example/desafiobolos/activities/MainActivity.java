@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.example.desafiobolos.R;
-import com.example.desafiobolos.databinding.ActivityMainBinding;
+import com.example.desafiobolos.activities.R;
+import com.example.desafiobolos.activities.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
