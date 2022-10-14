@@ -14,31 +14,49 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ShowItemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegistrerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:name="com.example.desafiobolos.activities.autentication.NewLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.desafiobolos.activities.autentication.RecuperarContaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.desafiobolos.activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.ShowItemActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.DeliveryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.autentication.RegistrerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.activities.autentication.LoginActivity"
+            android:exported="false">
+
         </activity>
     </application>
 

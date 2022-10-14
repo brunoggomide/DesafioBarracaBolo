@@ -1,4 +1,4 @@
-package com.example.desafiobolos.activities;
+package com.example.desafiobolos.activities.autentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void IniciarComponentes() {
+
         cadastro = findViewById(R.id.cadastro);
     }
 }

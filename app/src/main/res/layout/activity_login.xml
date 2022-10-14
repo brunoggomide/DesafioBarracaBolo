@@ -14,6 +14,8 @@
     android:background="@drawable/background"
     tools:context=".activities.LoginActivity">
 
+
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
@@ -95,4 +97,5 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView
+   >
