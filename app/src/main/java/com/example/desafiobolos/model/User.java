@@ -1,41 +1,25 @@
 package com.example.desafiobolos.model;
 
-import com.example.desafiobolos.helper.FirebaseHelper;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
+import com.example.desafiobolos.Validators;
 import com.google.firebase.database.Exclude;
 
-import java.util.Date;
-
-public  class User {
+abstract class User implements Validators {
 
     private String id;
     private String nome;
     private String email;
     private String telefone;
     private String cpf;
-    private Date dataNasc;
+    private String dataNasc;
     private String senha;
+    private String confirmaSenha;
 
-    public User (){
 
-    }
-
-    public void salvar (){
-
-        DatabaseReference userRef = FirebaseHelper.getDatabaseReference().child("usuarios").child(getId());
-        userRef.setValue(this);
-
-        FirebaseUser user = FirebaseHelper.getAuth().getCurrentUser();
-
-        UserProfileChangeRequest profileUser = new UserProfileChangeRequest.Builder().setDisplayName(getNome()).build();
-
-        if (user != null) user.updateProfile(profileUser);
+    public User() {
 
     }
 
-    public User(String id, String nome, String email, String telefone, String senha, String cpf, Date dataNasc) {
+    public User(String id, String nome, String email, String telefone, String senha, String cpf, String dataNasc, String confirmaSenha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -43,6 +27,15 @@ public  class User {
         this.senha = senha;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
+
+    }
+
+    public String getConfirmaSenha() {
+        return confirmaSenha;
+    }
+
+    public void setConfirmaSenha(String confirmaSenha) {
+        this.confirmaSenha = confirmaSenha;
     }
 
     public String getId() {
@@ -85,11 +78,11 @@ public  class User {
         this.cpf = cpf;
     }
 
-    public Date getDataNasc() {
+    public String getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(Date dataNasc) {
+    public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
 

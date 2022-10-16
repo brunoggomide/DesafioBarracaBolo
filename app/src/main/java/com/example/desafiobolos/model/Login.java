@@ -1,9 +1,10 @@
 package com.example.desafiobolos.model;
 
+import com.example.desafiobolos.Validators;
 import com.example.desafiobolos.helper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 
-public class Login {
+public class Login implements Validators {
 
     private String id;
     private String tipo; // tipo user ou tipo admin

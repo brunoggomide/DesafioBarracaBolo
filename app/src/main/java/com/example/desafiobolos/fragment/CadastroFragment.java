@@ -14,11 +14,12 @@ import android.widget.ProgressBar;
 
 import com.example.desafiobolos.activities.R;
 import com.example.desafiobolos.helper.FirebaseHelper;
+import com.example.desafiobolos.model.Cliente;
 import com.example.desafiobolos.model.Login;
-import com.example.desafiobolos.model.User;
 
 
-public class CadastroFragment extends Fragment {
+
+public class CadastroFragment extends Fragment implements View.OnClickListener {
 
     private EditText name;
     private EditText data_nasc;
@@ -37,19 +38,18 @@ public class CadastroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_cliente, container, false);
+        View view = inflater.inflate(R.layout.fragment_cadastro, container, false);
 
         iniciaComponentes (view);
+        onClick(view);
 
-        configClicks();
+
 
         return view;
     }
 
 
-    private void configClicks(){
-        cadastro_button.setOnClickListener(v -> validaDados());
-    }
+
 
     private void validaDados() {
 
@@ -64,19 +64,43 @@ public class CadastroFragment extends Fragment {
 
         if (!registroGeral.isEmpty()) {
             if (!senha.isEmpty()) {
+                if(!datanasc.isEmpty()){
+                    if(!nomeCompleto.isEmpty()){
+                        if(!emailPrincipal.isEmpty()){
+                            if (!numeroTelefone.isEmpty()){
+
+                                Cliente cliente = new Cliente();
+                                cliente.setCpf(registroGeral);
+                                cliente.setSenha(senha);
+                                cliente.setEmail(emailPrincipal);
+                                cliente.setNome(nomeCompleto);
+                                cliente.setTelefone(numeroTelefone);
+                                cliente.setDataNasc(datanasc);
+                                cliente.setConfirmaSenha(confirmaSenha);
 
 
+                                criarConta(cliente);
 
-                User user = new User();
-                user.setCpf(registroGeral);
-                user.setSenha(senha);
-                user.setEmail(emailPrincipal);
-                user.setNome(nomeCompleto);
-                user.setTelefone(numeroTelefone);
-                user.setDataNasc(datanasc);
+                            }else {
+                                contato.requestFocus();
+                                contato.setError("Por favor digite um numero de telefone");
+                            }
 
+                        }else {
+                            email.requestFocus();
+                            email.setError("Digite um e-mail valido");
+                        }
 
-                criarConta(user);
+                    }else {
+                        name.requestFocus();
+                        name.setError("Digite o seu nome");
+                    }
+
+                }else {
+                    data_nasc.requestFocus();
+                    data_nasc.setError("Informe sua data de nascimento");
+
+                }
 
             }else {
                 passwd.requestFocus();
@@ -92,17 +116,17 @@ public class CadastroFragment extends Fragment {
 
     }
 
-    private void criarConta (User user) {
+    private void criarConta (Cliente cliente) {
         FirebaseHelper.getAuth().createUserWithEmailAndPassword(
-                user.getEmail(), user.getSenha()
+                cliente.getEmail(), cliente.getSenha()
 
         ).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
 
                 String id = task.getResult().getUser().getUid();
 
-                user.setId(id);
-                user.salvar();
+                cliente.setId(id);
+                cliente.salvar();
 
                 Login login = new Login(id, "C", false);
                 login.salvar();
@@ -137,9 +161,16 @@ public class CadastroFragment extends Fragment {
         cpf = view.findViewById(R.id.cpf);
         passwd = view.findViewById(R.id.passwd);
         passwd_confirm = view.findViewById(R.id.passwd_confirm);
-        cadastro_button = view.findViewById(R.id.login_button);
+        cadastro_button = view.findViewById(R.id.cadastro_button);
         contato = view.findViewById(R.id.contato);
         email = view.findViewById(R.id.email);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        cadastro_button.setOnClickListener(v -> validaDados());
+
 
     }
 }
