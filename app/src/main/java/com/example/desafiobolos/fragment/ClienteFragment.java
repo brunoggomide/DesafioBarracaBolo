@@ -17,10 +17,10 @@ import android.widget.TextView;
 
 import com.example.desafiobolos.activities.R;
 
-import com.example.desafiobolos.activities.autentication.NewRegisterActivity;
+import com.example.desafiobolos.activities.autentication.RegistrerActivity;
 import com.example.desafiobolos.helper.FirebaseHelper;
 import com.example.desafiobolos.model.Login;
-import com.example.desafiobolos.usuario.UsuarioHomeActivity;
+import com.example.desafiobolos.usuario.MenuActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,8 +61,15 @@ public class ClienteFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), NewRegisterActivity.class);
+                Intent intent = new Intent(getActivity(), RegistrerActivity.class);
                 getContext().startActivity(intent);
+            }
+        });
+
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validaDados(view);
             }
         });
 
@@ -95,13 +102,16 @@ public class ClienteFragment extends Fragment {
     }
 
     private void logar (String registroGeral, String senha) {
+
+
+
         FirebaseHelper.getAuth().signInWithEmailAndPassword(registroGeral, senha).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
                 verificaCadastro(task.getResult().getUser().getUid());
 
             }else {
-
-                autenticationError(task.getException().getMessage());
+                progress_bar.setVisibility(View.GONE);
+                autenticationError(FirebaseHelper.validaErros(task.getException().getMessage()));
 
             }
         });
@@ -117,8 +127,15 @@ public class ClienteFragment extends Fragment {
                 Login login = snapshot.getValue(Login.class);
 
                 if(login.isAcesso()){
-                    startActivity(new Intent(getActivity(), UsuarioHomeActivity.class));
-                } // implementar else para finalizar cadastro depois
+                    Intent intent = new Intent(getContext(), MenuActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getContext(), MenuActivity.class);
+                    startActivity(intent);
+
+                }
+
+
 
             }
 

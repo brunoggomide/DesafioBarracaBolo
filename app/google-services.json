@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "998524085430",
-    "project_id": "desafio-bolo",
-    "storage_bucket": "desafio-bolo.appspot.com"
+    "project_number": "1017838868927",
+    "project_id": "desafio-bolo-f58f6",
+    "storage_bucket": "desafio-bolo-f58f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:998524085430:android:715f6276a0b84a906cb217",
+        "mobilesdk_app_id": "1:1017838868927:android:e21036041e6ed3e807290a",
         "android_client_info": {
-          "package_name": "com.example.desafiobolos.activities"
+          "package_name": "com.example.desafiobolos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "998524085430-olln7uifuer2k3h65ihcbhchbj81astl.apps.googleusercontent.com",
+          "client_id": "1017838868927-njch6amq7jo688t6dj5qgnl5mht7pmhs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.desafiobolos.activities",
-            "certificate_hash": "46b0da89160bc25e195fc0ab88524b0fcd2bf989"
+            "package_name": "com.example.desafiobolos",
+            "certificate_hash": "f47739447d1efc60b639ff290220e80dd3d129ae"
           }
         },
         {
-          "client_id": "998524085430-errooanh52avaqagbnlv2qchbge1bifp.apps.googleusercontent.com",
+          "client_id": "1017838868927-q4e4k1k5cfiua69df8lt318nb86nqegv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCrvR9we2JsEYAi6ZLW2qSNDpkhwOgsL9o"
+          "current_key": "AIzaSyBjWLr1OuIBrOzzQ4szxijhRycguFzYtKA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "998524085430-errooanh52avaqagbnlv2qchbge1bifp.apps.googleusercontent.com",
+              "client_id": "1017838868927-q4e4k1k5cfiua69df8lt318nb86nqegv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

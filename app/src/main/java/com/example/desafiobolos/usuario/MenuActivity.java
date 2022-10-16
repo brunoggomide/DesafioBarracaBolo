@@ -1,8 +1,10 @@
-package com.example.desafiobolos.activities;
+package com.example.desafiobolos.usuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.desafiobolos.activities.R;
 
 public class MenuActivity extends AppCompatActivity {
 

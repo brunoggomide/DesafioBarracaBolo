@@ -37,8 +37,8 @@
             android:id="@+id/cpf"
             style="@style/Edit_Text"
             android:hint="CPF"
-            android:maxLength="11"
-            android:inputType="number"
+
+            android:inputType="textEmailAddress"
             android:drawableRight="@drawable/ic_cpf"
             app:layout_constraintStart_toStartOf="@id/containerComponents"
             app:layout_constraintEnd_toEndOf="@id/containerComponents"

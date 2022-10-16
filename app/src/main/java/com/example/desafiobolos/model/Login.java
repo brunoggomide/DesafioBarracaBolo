@@ -10,6 +10,9 @@ public class Login implements Validators {
     private String tipo; // tipo user ou tipo admin
     private boolean acesso;
 
+    public Login() {
+    }
+
     public Login(String id, String tipo, boolean acesso) {
         this.id = id;
         this.tipo = tipo;

@@ -13,20 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
-        <activity
-            android:name=".UsuarioHomeActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.desafiobolos.activities.autentication.NewRegisterActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name="com.example.desafiobolos.activities.autentication.NewLoginActivity"
             android:exported="true">
@@ -67,6 +54,9 @@
             android:exported="false" />
         <activity
             android:name="com.example.desafiobolos.activities.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.desafiobolos.usuario.MenuActivity"
             android:exported="false" />
         <activity
             android:name="com.example.desafiobolos.activities.autentication.LoginActivity"

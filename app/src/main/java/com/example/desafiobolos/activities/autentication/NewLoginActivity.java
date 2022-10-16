@@ -22,6 +22,7 @@ public class NewLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_login);
 
+        getSupportActionBar().hide();
         iniciaComponentes ();
         configTabLayout ();
     }
