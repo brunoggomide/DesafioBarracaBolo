@@ -21,9 +21,12 @@ import com.example.desafiobolos.activities.autentication.RegistrerActivity;
 import com.example.desafiobolos.helper.FirebaseHelper;
 import com.example.desafiobolos.model.Login;
 import com.example.desafiobolos.usuario.MenuActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -35,6 +38,7 @@ public class ClienteFragment extends Fragment {
     private ProgressBar progress_bar;
     private Button login_button;
     private TextView cadastro;
+    private DatabaseReference databaseRef;
 
 
 
@@ -84,7 +88,7 @@ public class ClienteFragment extends Fragment {
         if (!registroGeral.isEmpty()){
             if (!senha.isEmpty()){
 
-                progress_bar.setVisibility(View.VISIBLE);
+
                 logar(registroGeral, senha);
 
             }else {
@@ -112,6 +116,7 @@ public class ClienteFragment extends Fragment {
             }else {
                 progress_bar.setVisibility(View.GONE);
                 autenticationError(FirebaseHelper.validaErros(task.getException().getMessage()));
+
 
             }
         });
