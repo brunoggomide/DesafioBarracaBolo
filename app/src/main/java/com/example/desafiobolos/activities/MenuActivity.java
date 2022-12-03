@@ -9,12 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class DeliveryActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery);
+        setContentView(R.layout.activity_menu);
     }
 
     @Override
@@ -28,18 +28,18 @@ public class DeliveryActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.home:
-                Intent intent = new Intent(DeliveryActivity.this, MenuActivity.class);
-                startActivity(intent);
+                Toast.makeText(this, "Ja está na home", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.basket:
-                Intent intent1 = new Intent(DeliveryActivity.this, OrderActivity.class);
+                Intent intent1 = new Intent(MenuActivity.this, OrderActivity.class);
                 startActivity(intent1);
                 return true;
             case R.id.delivery:
-                Toast.makeText(this, "Ja está em pedidos", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(MenuActivity.this, DeliveryActivity.class);
+                startActivity(intent2);
                 return true;
             case R.id.profile:
-                Intent intent3 = new Intent(DeliveryActivity.this, ProfileActivity.class);
+                Intent intent3 = new Intent(MenuActivity.this, ProfileActivity.class);
                 startActivity(intent3);
                 return true;
             default:

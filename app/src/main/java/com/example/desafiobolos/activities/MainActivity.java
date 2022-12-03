@@ -18,22 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            switch (item.getItemId()) {
-                case R.id.home:
-                    break;
-                case R.id.basket:
-                    break;
-                case R.id.delivery:
-                    break;
-                case R.id.profile:
-                    break;
-            }
-
-            return true;
-        });
     }
 
     private void replaceFragment(Fragment fragment) {

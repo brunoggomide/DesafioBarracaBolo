@@ -20,7 +20,6 @@ public class NewLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_login);
 
         getSupportActionBar().hide();
         iniciaComponentes ();
@@ -41,7 +40,6 @@ public class NewLoginActivity extends AppCompatActivity {
     }
 
     private void iniciaComponentes () {
-        tab_layout = findViewById(R.id.tab_layout);
-        view_pager = findViewById(R.id.view_pager);
+
     }
 }
