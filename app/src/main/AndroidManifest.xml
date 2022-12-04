@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
-            android:name=".MenuActivity"
+            android:name=".autentication.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,7 +58,7 @@
             android:name="com.example.desafiobolos.usuario.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".autentication.LoginActivity"
+            android:name=".MenuActivity"
             android:exported="false" />
     </application>
 

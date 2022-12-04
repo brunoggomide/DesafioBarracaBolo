@@ -27,9 +27,6 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.home:
-                Toast.makeText(this, "Ja está na home", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.basket:
                 Intent intent1 = new Intent(MenuActivity.this, OrderActivity.class);
                 startActivity(intent1);
