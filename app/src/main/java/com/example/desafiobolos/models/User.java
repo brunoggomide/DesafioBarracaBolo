@@ -1,4 +1,4 @@
-package com.example.desafiobolos.model;
+package com.example.desafiobolos.models;
 
 import com.example.desafiobolos.Validators;
 import com.google.firebase.database.Exclude;

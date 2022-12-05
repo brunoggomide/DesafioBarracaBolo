@@ -19,14 +19,11 @@ import com.example.desafiobolos.activities.R;
 
 import com.example.desafiobolos.activities.autentication.RegistrerActivity;
 import com.example.desafiobolos.helper.FirebaseHelper;
-import com.example.desafiobolos.model.Login;
+import com.example.desafiobolos.models.Login;
 import com.example.desafiobolos.usuario.MenuActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 

@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.desafiobolos.activities.R;
 import com.example.desafiobolos.helper.FirebaseHelper;
-import com.example.desafiobolos.model.Cliente;
-import com.example.desafiobolos.model.Login;
+import com.example.desafiobolos.models.Cliente;
+import com.example.desafiobolos.models.Login;
 
 
 public class RegistrerActivity extends AppCompatActivity {

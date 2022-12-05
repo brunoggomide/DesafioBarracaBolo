@@ -1,6 +1,5 @@
-package com.example.desafiobolos.model;
+package com.example.desafiobolos.models;
 
-import com.example.desafiobolos.Validators;
 import com.example.desafiobolos.helper.FirebaseHelper;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
