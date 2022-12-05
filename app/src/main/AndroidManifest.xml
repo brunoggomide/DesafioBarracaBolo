@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.desafiobolos.activities">
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DesafioBolos"
         tools:targetApi="31">
         <activity
-            android:name=".autentication.LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,7 +52,7 @@
             android:name=".autentication.RegistrerActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".autentication.LoginActivity"
             android:exported="false" />
         <activity
             android:name="com.example.desafiobolos.usuario.MenuActivity"
