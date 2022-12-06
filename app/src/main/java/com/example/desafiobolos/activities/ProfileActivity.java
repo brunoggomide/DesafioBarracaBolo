@@ -19,7 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        mAuth = FirebaseAuth.getInstance();
         AppCompatButton editBtn = findViewById(R.id.edit_btn);
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
