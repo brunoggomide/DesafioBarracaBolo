@@ -1,10 +1,5 @@
 package com.example.desafiobolos.activities.autentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,20 +9,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.desafiobolos.activities.MenuActivity;
 import com.example.desafiobolos.activities.R;
-import com.example.desafiobolos.helper.FirebaseHelper;
-import com.example.desafiobolos.models.Login;
-import com.example.desafiobolos.usuario.MenuActivity;
-import com.example.desafiobolos.activities.autentication.RegistrerActivity;
-import com.example.desafiobolos.helper.FirebaseHelper;
-import com.example.desafiobolos.models.Login;
-import com.example.desafiobolos.usuario.MenuActivity;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,17 +28,50 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwd;
     private EditText email;
     private ProgressBar progress_bar;
-    private DatabaseReference databaseRef;
 
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        IniciarComponentes();
+        cadastro = findViewById(R.id.cadastro);
+        login_button = findViewById(R.id.login_button);
+        passwd = findViewById(R.id.passwd);
+        email = findViewById(R.id.email);
+        progress_bar = findViewById(R.id.progress_bar);
+
+        hideProgressBar();
         configClicks();
 
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+
+    private void logar (String mail, String senha) {
+
+        showProgressBar();
+        mAuth.signInWithEmailAndPassword(mail, senha)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            updateUI(currentUser);
+                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(LoginActivity.this,
+                                    "Falha no login, verifique seus dados!", Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                        hideProgressBar();
+                    }
+                });
 
     }
 
@@ -94,69 +119,32 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void logar (String mail, String senha) {
-
-
-        FirebaseHelper.getAuth().signInWithEmailAndPassword(mail, senha).addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
-                verificaCadastro(task.getResult().getUser().getUid());
-
-            }else {
-                progress_bar.setVisibility(View.GONE);
-//                autenticationError(FirebaseHelper.validaErros(task.getException().getMessage()));
-
-
-            }
-        });
-
+    private void showProgressBar()
+    {
+        if(progress_bar != null)
+            progress_bar.setVisibility(View.VISIBLE);
     }
 
-    private void verificaCadastro(String idCliente){
-        DatabaseReference loginRef = FirebaseHelper.getDatabaseReference().child("login").child(idCliente);
-        loginRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                Login login = snapshot.getValue(Login.class);
-
-                if(login.isAcesso()){
-                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+    private void hideProgressBar()
+    {
+        if(progress_bar != null)
+            progress_bar.setVisibility(View.INVISIBLE);
     }
 
-//    private void autenticationError(String msg){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-//        builder.setTitle("Alerta");
-//        builder.setMessage(msg);
-//        builder.setPositiveButton("OK", ((dialogInterface, i) -> {
-//            dialogInterface.dismiss();
-//        }));
-//
-//        AlertDialog dialog = builder.create();
-//        dialog.show();
-//
-//    }
+    private void updateUI(FirebaseUser currentUser)
+    {
+        String title = "Usuário não logado";
+        String msg = "Faça login";
 
+        if(currentUser != null)
+        {
+            title = "Usuário logado";
+            msg = currentUser.getEmail();
+        }
 
-
-    private void IniciarComponentes() {
-
-        cadastro = findViewById(R.id.cadastro);
-        login_button = findViewById(R.id.login_button);
-        passwd = findViewById(R.id.passwd);
-        email = findViewById(R.id.email);
-        progress_bar = findViewById(R.id.progress_bar);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(msg);
+        builder.create().show();
     }
 }
