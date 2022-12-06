@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "1017838868927",
-    "project_id": "desafio-bolo-f58f6",
-    "storage_bucket": "desafio-bolo-f58f6.appspot.com"
+    "project_number": "163012661353",
+    "firebase_url": "https://desafio-quinta-etapa-default-rtdb.firebaseio.com",
+    "project_id": "desafio-quinta-etapa",
+    "storage_bucket": "desafio-quinta-etapa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1017838868927:android:e21036041e6ed3e807290a",
+        "mobilesdk_app_id": "1:163012661353:android:9c056b5b003a2411bed2f8",
         "android_client_info": {
           "package_name": "com.example.desafiobolos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1017838868927-njch6amq7jo688t6dj5qgnl5mht7pmhs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.desafiobolos",
-            "certificate_hash": "f47739447d1efc60b639ff290220e80dd3d129ae"
-          }
-        },
-        {
-          "client_id": "1017838868927-q4e4k1k5cfiua69df8lt318nb86nqegv.apps.googleusercontent.com",
+          "client_id": "163012661353-kh145b1afeqc5000uhi0cj11d7kmrsc5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBjWLr1OuIBrOzzQ4szxijhRycguFzYtKA"
+          "current_key": "AIzaSyCMgKjCw935p_ARPSPUWBhlUaHGxW_yHsQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1017838868927-q4e4k1k5cfiua69df8lt318nb86nqegv.apps.googleusercontent.com",
+              "client_id": "163012661353-kh145b1afeqc5000uhi0cj11d7kmrsc5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
