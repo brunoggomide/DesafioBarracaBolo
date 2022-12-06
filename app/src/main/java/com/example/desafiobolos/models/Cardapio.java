@@ -1,17 +1,18 @@
 package com.example.desafiobolos.models;
 
 import java.io.Serializable;
-import java.sql.Blob;
 
 public class Cardapio implements Serializable {
     private String nome;
     private String desc;
     private String valor;
+    private String url;
 
-    public Cardapio(String nome, String desc, String valor) {
+    public Cardapio(String nome, String desc, String valor, String url) {
         this.nome = nome;
         this.desc = desc;
         this.valor = valor;
+        this.url = url;
     }
 
     public String getNome() {
@@ -36,5 +37,13 @@ public class Cardapio implements Serializable {
 
     public void setValor(String valor) {
         this.valor = valor;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

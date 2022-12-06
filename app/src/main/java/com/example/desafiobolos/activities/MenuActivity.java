@@ -1,18 +1,27 @@
 package com.example.desafiobolos.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.desafiobolos.DAO.JSONCardapio;
 import com.example.desafiobolos.adapters.CardapioAdapter;
-import com.example.desafiobolos.db.CardapioDB;
+import com.example.desafiobolos.models.Cardapio;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -29,18 +38,32 @@ public class MenuActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.menu_recyclerView);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        adapter = new CardapioAdapter(this, new CardapioAdapter.OnItemClickListener() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://us-central1-desafio-quinta-etapa.cloudfunctions.net/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        JSONCardapio jsonCardapio = retrofit.create(JSONCardapio.class);
+        Call<List<Cardapio>> call = jsonCardapio.getCardapio();
+        call.enqueue(new Callback<List<Cardapio>>() {
             @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(MenuActivity.this, ShowItemActivity.class);
-                intent.putExtra(EXTRA_SHOW, CardapioDB.myMenu.get(position));
-                startActivity(intent);
+            public void onResponse(Call<List<Cardapio>> call, Response<List<Cardapio>> response) {
+                if(!response.isSuccessful()) {
+                    Toast.makeText(MenuActivity.this, response.code(), Toast.LENGTH_LONG);
+                    return;
+                }
+                List<Cardapio> cardapioList = response.body();
+                CardapioAdapter cardapioAdapter = new CardapioAdapter(MenuActivity.this, cardapioList);
+                recyclerView.setAdapter(cardapioAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Cardapio>> call, Throwable t) {
+                Toast.makeText(MenuActivity.this, t.getMessage(), Toast.LENGTH_LONG);
             }
         });
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
