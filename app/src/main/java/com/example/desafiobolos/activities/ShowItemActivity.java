@@ -1,10 +1,10 @@
 package com.example.desafiobolos.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.desafiobolos.models.Cardapio;
 
@@ -23,7 +23,7 @@ public class ShowItemActivity extends AppCompatActivity {
         Cardapio cardapio = (Cardapio) intent.getSerializableExtra(MenuActivity.EXTRA_SHOW);
 
         nameTextView.setText(cardapio.getNome());
-        descTextView.setText(cardapio.getDesc());
+        descTextView.setText(cardapio.getDescription());
         vlrTextView.setText(cardapio.getValor());
     }
 }

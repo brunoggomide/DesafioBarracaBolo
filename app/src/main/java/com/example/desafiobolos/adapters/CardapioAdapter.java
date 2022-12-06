@@ -39,7 +39,7 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.Cardap
         holder.produto.setText(cardapio.getNome());
         holder.preco.setText(cardapio.getValor());
         Glide.with(holder.foto)
-                .load(cardapio.getUrl())
+                .load(cardapio.getImageURL())
                 .into(holder.foto);
     }
 

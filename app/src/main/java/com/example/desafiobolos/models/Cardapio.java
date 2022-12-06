@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Cardapio implements Serializable {
     private String nome;
-    private String desc;
+    private String description;
     private String valor;
-    private String url;
+    private String imageURL;
 
-    public Cardapio(String nome, String desc, String valor, String url) {
+    public Cardapio(String nome, String description, String valor, String imageURL) {
         this.nome = nome;
-        this.desc = desc;
+        this.description = description;
         this.valor = valor;
-        this.url = url;
+        this.imageURL = imageURL;
     }
 
     public String getNome() {
@@ -23,12 +23,12 @@ public class Cardapio implements Serializable {
         this.nome = nome;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getValor() {
@@ -39,11 +39,11 @@ public class Cardapio implements Serializable {
         this.valor = valor;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
